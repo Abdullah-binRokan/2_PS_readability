@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // declare gradeIndex to use it with the functions
 // declare calculateGrade function
@@ -24,10 +25,18 @@ float calculateGrade(string text)
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
     int wordsCount, lettersCount, sentencesCount;
     float lettersAvg, sentencesAvg;
+
     // loop through the text
+    for (int i = 0; i < strlen(text); i++)
+    {
+        printf("\nstrlen(text) = %lu", strlen(text));
+        printf("\ni = %i", i);
+        printf("\ncurrent letter : %c", text[i]);
         // increment letterCount
         // if there is no uppercase or lower case letter incerment wordCount
         // if there is (., !, ?) increment sentencesCount
+    }
+
     // calculate grade based on Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8
 }
 
