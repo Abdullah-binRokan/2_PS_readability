@@ -23,18 +23,25 @@ int main(void)
 float calculateGrade(string text)
 {
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
-    int wordsCount, lettersCount, sentencesCount;
+    int wordsCount, lettersCount = 0, sentencesCount;
     float lettersAvg, sentencesAvg;
 
     // loop through the text
     for (int i = 0; i < strlen(text); i++)
     {
-        printf("\nstrlen(text) = %lu", strlen(text));
         printf("\ni = %i", i);
         printf("\ncurrent letter : %c", text[i]);
-        // increment letterCount
+
+        // increment letterCount if it's a letter (based on ascii decimal value)
+        if (text[i] > 64 && text[i] < 91 || text[i] > 96 && text[i] < 123)
+        {
+            lettersCount += 1;
+        }
         // if there is no uppercase or lower case letter incerment wordCount
         // if there is (., !, ?) increment sentencesCount
+
+        printf("\nlettrsCount : %i", lettersCount);
+        printf("\n");
     }
 
     // calculate grade based on Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8
