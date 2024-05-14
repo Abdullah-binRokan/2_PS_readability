@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -32,12 +33,12 @@ float calculateGrade(string text)
         printf("\ni = %i", i);
         printf("\ncurrent letter : %c", text[i]);
 
-        // increment letterCount if it's a letter (based on ascii decimal value)
-        if (text[i] > 64 && text[i] < 91 || text[i] > 96 && text[i] < 123)
+        // increment letterCount if it's a letter (using ctype library)
+        if (isalpha(text[i]))
         {
             lettersCount += 1;
         }
-        // if there is no uppercase or lower case letter incerment wordCount
+        // if there is a space (check ascii decimal value) incerment wordCount
         // if there is (., !, ?) increment sentencesCount
 
         printf("\nlettrsCount : %i", lettersCount);
