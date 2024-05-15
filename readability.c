@@ -39,9 +39,13 @@ float calculateGrade(string text)
             lettersCount += 1;
         }
         // if there is a space (check ascii decimal value) incerment wordCount
+        if (text[i] == 32)
+        {
+            wordsCount += 1;
+        }
         // if there is (., !, ?) increment sentencesCount
 
-        printf("\nlettrsCount : %i", lettersCount);
+        printf("\nwordsCount : %i", wordsCount);
         printf("\n");
     }
 
