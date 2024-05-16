@@ -24,7 +24,7 @@ int main(void)
 float calculateGrade(string text)
 {
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
-    int wordsCount, lettersCount = 0, sentencesCount;
+    int wordsCount, lettersCount = 0, sentencesCount = 0;
     float lettersAvg, sentencesAvg;
 
     // loop through the text
@@ -44,8 +44,12 @@ float calculateGrade(string text)
             wordsCount += 1;
         }
         // if there is (., !, ?) increment sentencesCount
+        if (text[i] == 33 || text[i] == 46 || text[i] == 63)
+        {
+            sentencesCount += 1;
+        }
 
-        printf("\nwordsCount : %i", wordsCount);
+        printf("\nsentencesCount : %i", sentencesCount);
         printf("\n");
     }
 
