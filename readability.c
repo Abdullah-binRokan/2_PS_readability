@@ -25,14 +25,11 @@ float calculateGrade(string text)
 {
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
     int wordsCount, lettersCount = 0, sentencesCount = 0;
-    float lettersAvg, sentencesAvg;
+    float lettersAvg = 0, sentencesAvg = 0;
 
     // loop through the text
     for (int i = 0; i < strlen(text); i++)
     {
-        printf("\ni = %i", i);
-        printf("\ncurrent letter : %c", text[i]);
-
         // increment letterCount if it's a letter (using ctype library)
         if (isalpha(text[i]))
         {
@@ -48,12 +45,19 @@ float calculateGrade(string text)
         {
             sentencesCount += 1;
         }
-
-        printf("\nsentencesCount : %i", sentencesCount);
-        printf("\n");
     }
+    printf("\nlettersCount : %i\n", lettersCount);
+    printf("\nwordsCount : %i\n", wordsCount);
+    printf("\nsentencesCount : %i\n", sentencesCount);
+    printf("\nsentencesAvg : %f\n", sentencesAvg);
+
 
     // calculate grade based on Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8
+    lettersAvg = lettersCount / wordsCount * 100;
+    sentencesAvg = sentencesCount / wordsCount * 100;
+    printf("\nsentencesAvg : %f\n", sentencesAvg);
+    printf("\nLAvg: %f     SAvg:  %f", lettersAvg, sentencesAvg);
+    printf("\nindex = %f\n", 0.588 * lettersAvg - 0.296 * sentencesAvg - 15.8);
 }
 
 
