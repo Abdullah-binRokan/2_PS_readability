@@ -24,8 +24,9 @@ int main(void)
 // define function that calculate grade & output it
 float calculateGrade(string text)
 {
+    // declare as float not int to avoid truncation of avg result when divided (int / float = int) 
+    float wordsCount = 1, lettersCount = 0, sentencesCount = 0;
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
-    int wordsCount = 1, lettersCount = 0, sentencesCount = 0;
     float lettersAvg = 0.00, sentencesAvg = 0.00;
     float index;
 
@@ -48,9 +49,9 @@ float calculateGrade(string text)
             sentencesCount += 1;
         }
     }
-    printf("\nlettersCount : %i\n", lettersCount);
-    printf("\nwordsCount : %i\n", wordsCount);
-    printf("\nsentencesCount : %i\n", sentencesCount);
+    printf("\nlettersCount : %f\n", lettersCount);
+    printf("\nwordsCount : %f\n", wordsCount);
+    printf("\nsentencesCount : %f\n", sentencesCount);
     printf("\nsentencesAvg : %f\n", sentencesAvg);
 
 
