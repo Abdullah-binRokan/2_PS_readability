@@ -5,13 +5,14 @@
 
 // declare gradeIndex to use it with the functions
 // declare calculateGrade function
-float calculateGrade(string text);
+float calculateGrade(string);
 // delcare printGrade function
 
 int main(void)
 {
     // get the text from the user
-    string text = get_string("Text: ");
+    // string text = get_string("Text: ");
+    string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
 
     // call calculateGrade function
     float gradeIndex = calculateGrade(text);
@@ -24,8 +25,9 @@ int main(void)
 float calculateGrade(string text)
 {
     // declare wordsCount, lettersCount, lettersAvg, sentencesCount, sentencesAvg
-    int wordsCount, lettersCount = 0, sentencesCount = 0;
-    float lettersAvg = 0, sentencesAvg = 0;
+    int wordsCount = 1, lettersCount = 0, sentencesCount = 0;
+    float lettersAvg = 0.00, sentencesAvg = 0.00;
+    float index;
 
     // loop through the text
     for (int i = 0; i < strlen(text); i++)
@@ -55,9 +57,13 @@ float calculateGrade(string text)
     // calculate grade based on Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8
     lettersAvg = lettersCount / wordsCount * 100;
     sentencesAvg = sentencesCount / wordsCount * 100;
+    index = 0.588 * lettersAvg - 0.296 * sentencesAvg - 15.8;
     printf("\nsentencesAvg : %f\n", sentencesAvg);
     printf("\nLAvg: %f     SAvg:  %f", lettersAvg, sentencesAvg);
+    printf("\n SAvg:  %f", sentencesAvg);
     printf("\nindex = %f\n", 0.588 * lettersAvg - 0.296 * sentencesAvg - 15.8);
+    
+    return index;
 }
 
 
