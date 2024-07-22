@@ -2,22 +2,24 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
-// declare gradeIndex to use it with the functions
 // declare calculateGrade function
 float calculateGrade(string);
-// delcare printGrade function
+
+// declare printGrade function
+void printGrade(float);
 
 int main(void)
 {
     // get the text from the user
-    // string text = get_string("Text: ");
-    string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
+    string text = get_string("Text: ");
 
     // call calculateGrade function
     float gradeIndex = calculateGrade(text);
 
     // call printGrade function
+    printGrade(gradeIndex);
 }
 
 
@@ -49,26 +51,32 @@ float calculateGrade(string text)
             sentencesCount += 1;
         }
     }
-    printf("\nlettersCount : %f\n", lettersCount);
-    printf("\nwordsCount : %f\n", wordsCount);
-    printf("\nsentencesCount : %f\n", sentencesCount);
-    printf("\nsentencesAvg : %f\n", sentencesAvg);
-
 
     // calculate grade based on Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8
     lettersAvg = lettersCount / wordsCount * 100;
     sentencesAvg = sentencesCount / wordsCount * 100;
-    index = 0.588 * lettersAvg - 0.296 * sentencesAvg - 15.8;
-    printf("\nsentencesAvg : %f\n", sentencesAvg);
-    printf("\nLAvg: %f     SAvg:  %f", lettersAvg, sentencesAvg);
-    printf("\n SAvg:  %f", sentencesAvg);
-    printf("\nindex = %f\n", 0.588 * lettersAvg - 0.296 * sentencesAvg - 15.8);
-    
+    index = 0.0588 * lettersAvg - 0.296 * sentencesAvg - 15.8;
+
     return index;
 }
 
 
-// define function that gets gradeIndex and prints grade level
-    // if gradeIndex less than print Grade 1
-    // else if gradeIndex is 16 or higher print Grade 16+
-    // else print grade level rounded to the nearest integer
+// define printGrade function that gets gradeIndex and prints grade level
+void printGrade(float gradeIndex)
+{
+    // round gradeIndex to the nearest integer
+    int gradeInt = round(gradeIndex);
+
+    if (gradeInt < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (gradeInt == 16 || gradeInt > 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else
+    {
+        printf("Grade %i\n", gradeInt);
+    }
+}
